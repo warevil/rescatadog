@@ -102,7 +102,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     return Container(
       height: 55,
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
+      margin: const EdgeInsets.fromLTRB(25, 0, 25, 0),
       decoration: BoxDecoration(
           color: bottomBarColor,
           borderRadius: BorderRadius.circular(20),
@@ -111,7 +111,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
                 color: shadowColor.withOpacity(0.1),
                 blurRadius: 1,
                 spreadRadius: 1,
-                offset: Offset(0, 1))
+                offset: const Offset(0, 1))
           ]),
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
