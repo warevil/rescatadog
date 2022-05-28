@@ -41,7 +41,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
 //====== Animation=====
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: ANIMATED_BODY_MS),
+    duration: const Duration(milliseconds: animatedBodyMs),
     vsync: this,
   );
 

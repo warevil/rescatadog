@@ -17,7 +17,7 @@ class ChatItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.only(bottom: 8),
+        margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -33,7 +33,7 @@ class ChatItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(height: 2),
+            const SizedBox(height: 2),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -42,7 +42,7 @@ class ChatItem extends StatelessWidget {
                 //   width: profileSize,
                 //   height: profileSize,
                 // ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                     child: Container(
                         child: Column(
@@ -51,23 +51,21 @@ class ChatItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Expanded(
-                            child: Container(
-                                child: Text(chatData['name'],
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w700)))),
-                        SizedBox(width: 5),
-                        Container(
-                            child: Text(chatData['date'],
+                            child: Text(chatData['name'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    fontSize: 11, color: Colors.grey)))
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700))),
+                        const SizedBox(width: 5),
+                        Text(chatData['date'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                fontSize: 11, color: Colors.grey))
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Row(
@@ -76,7 +74,7 @@ class ChatItem extends StatelessWidget {
                             child: Text(chatData['last_text'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 13))),
+                                style: const TextStyle(fontSize: 13))),
                         if (isNotified)
                           Padding(
                             padding: const EdgeInsets.only(right: 5),

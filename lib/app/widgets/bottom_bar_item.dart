@@ -26,7 +26,7 @@ class BottomBarItem extends StatelessWidget {
         alignment: Alignment.center,
         child: Stack(alignment: Alignment.center, children: <Widget>[
           Container(
-            padding: EdgeInsets.all(7),
+            padding: const EdgeInsets.all(7),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: isActive ? primary.withOpacity(.1) : Colors.transparent,

@@ -1,1 +1,1 @@
-const int ANIMATED_BODY_MS = 500;
+const animatedBodyMs = 500;

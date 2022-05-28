@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NotifyBox extends StatelessWidget {
-  NotifyBox(
+  const NotifyBox(
       {Key? key,
       required this.number,
       this.boxSize = 30,
@@ -16,13 +16,16 @@ class NotifyBox extends StatelessWidget {
       visible: number > 0,
       child: Container(
         alignment: Alignment.center,
-        // padding: EdgeInsets.all(boxPadding),
-        width: boxSize, height: boxSize,
+        width: boxSize,
+        height: boxSize,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: color,
         ),
-        child: Text("$number", style: TextStyle(color: Colors.white)),
+        child: Text(
+          '$number',
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
     );
   }
