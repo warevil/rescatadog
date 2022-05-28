@@ -11,7 +11,7 @@ class RootApp extends StatefulWidget {
   const RootApp({Key? key}) : super(key: key);
 
   @override
-  _RootAppState createState() => _RootAppState();
+  State<RootApp> createState() => _RootAppState();
 }
 
 class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
@@ -20,27 +20,23 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     {
       "icon": "icons/pet-border.svg",
       "active_icon": "icons/pet.svg",
-      "page": Container(
-        child: Center(
-          child: Text("Pet Page"),
-        ),
+      "page": const Center(
+        child: Text("Pet Page"),
       ),
       "title": ""
     },
     {
       "icon": "icons/setting-border.svg",
       "active_icon": "icons/setting.svg",
-      "page": Container(
-        child: Center(
-          child: Text("Setting Page"),
-        ),
+      "page": const Center(
+        child: Text("Setting Page"),
       ),
       "title": ""
     },
     {
       "icon": "icons/pet-border.svg",
       "active_icon": "icons/pet.svg",
-      "page": ChatPage(),
+      "page": const ChatPage(),
       "title": ""
     },
   ];
@@ -95,9 +91,12 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
   Widget getBarPage() {
     return IndexedStack(
-        index: activeTab,
-        children: List.generate(
-            barItems.length, (index) => animatedPage(barItems[index]["page"])));
+      index: activeTab,
+      children: List.generate(
+        barItems.length,
+        (index) => animatedPage(barItems[index]["page"]),
+      ),
+    );
   }
 
   Widget getBottomBar() {
