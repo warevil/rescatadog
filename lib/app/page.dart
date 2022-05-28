@@ -18,33 +18,35 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   int activeTab = 0;
   List barItems = [
     {
-      "icon": "icons/pet-border.svg",
-      "active_icon": "icons/pet.svg",
-      "page": const Center(
-        child: Text("Pet Page"),
+      'icon': 'icons/pet-border.svg',
+      'active_icon': 'icons/pet.svg',
+      'page': const Center(
+        child: Text('Pet Page'),
       ),
-      "title": ""
+      'title': ' '
     },
     {
-      "icon": "icons/setting-border.svg",
-      "active_icon": "icons/setting.svg",
-      "page": const Center(
-        child: Text("Setting Page"),
+      'icon': 'icons/setting-border.svg',
+      'active_icon': 'icons/setting.svg',
+      'page': const Center(
+        child: Text('Setting Page'),
       ),
-      "title": ""
+      'title': ' '
     },
     {
-      "icon": "icons/pet-border.svg",
-      "active_icon": "icons/pet.svg",
-      "page": const ChatPage(),
-      "title": ""
+      'icon': 'icons/pet-border.svg',
+      'active_icon': 'icons/pet.svg',
+      'page': const ChatPage(),
+      'title': ' '
     },
   ];
-//====== set animation=====
+
+//====== Animation=====
   late final AnimationController _controller = AnimationController(
     duration: const Duration(milliseconds: ANIMATED_BODY_MS),
     vsync: this,
   );
+
   late final Animation<double> _animation = CurvedAnimation(
     parent: _controller,
     curve: Curves.fastOutSlowIn,
@@ -75,14 +77,13 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     _controller.forward();
   }
 
-//====== end set animation=====
+//====== END Animation=====
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBgColor,
       body: getBarPage(),
-      // bottomNavigationBar: getBottomBar1()
       floatingActionButton: getBottomBar(),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterFloat,
@@ -94,7 +95,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       index: activeTab,
       children: List.generate(
         barItems.length,
-        (index) => animatedPage(barItems[index]["page"]),
+        (index) => animatedPage(barItems[index]['page']),
       ),
     );
   }
@@ -121,9 +122,9 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
               barItems.length,
               (index) => BottomBarItem(
                     activeTab == index
-                        ? barItems[index]["active_icon"]
-                        : barItems[index]["icon"],
-                    "",
+                        ? barItems[index]['active_icon']
+                        : barItems[index]['icon'],
+                    '',
                     isActive: activeTab == index,
                     activeColor: primary,
                     onTap: () {
