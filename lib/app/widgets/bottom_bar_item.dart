@@ -5,11 +5,13 @@ import '../../theme/colors.dart';
 
 class BottomBarItem extends StatelessWidget {
   const BottomBarItem(this.icon, this.title,
-      {this.onTap,
+      {Key? key,
+      this.onTap,
       this.color = Colors.black,
       this.activeColor = primary,
       this.isActive = false,
-      this.isNotified = false});
+      this.isNotified = false})
+      : super(key: key);
   final String icon;
   final String title;
   final Color color;
