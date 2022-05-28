@@ -38,7 +38,7 @@ class _ChatPageState extends State<ChatPage> {
                   child: Container(
                       alignment: Alignment.centerLeft,
                       child: const Text(
-                        "Chats",
+                        'Chats',
                         style: TextStyle(
                             fontSize: 28,
                             color: Colors.black87,
@@ -49,7 +49,7 @@ class _ChatPageState extends State<ChatPage> {
             ),
             const SizedBox(height: 15),
             const CustomTextBox(
-              hint: "Search",
+              hint: 'Buscar',
               prefix: Icon(Icons.search, color: Colors.grey),
             ),
           ],
