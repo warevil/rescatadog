@@ -7,7 +7,7 @@ class ChatItem extends StatelessWidget {
   const ChatItem(this.chatData,
       {Key? key, this.onTap, this.isNotified = true, this.profileSize = 50})
       : super(key: key);
-  final Map chatData;
+  final Map<String, dynamic> chatData;
   final bool isNotified;
   final GestureTapCallback? onTap;
   final double profileSize;
@@ -50,18 +50,22 @@ class ChatItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Expanded(
-                            child: Text(chatData['name'],
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w700))),
-                        const SizedBox(width: 5),
-                        Text(chatData['date'],
+                          child: Text(
+                            chatData['name'],
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
-                                fontSize: 11, color: Colors.grey))
+                                fontSize: 16, fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        Text(
+                          chatData['date'],
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                              const TextStyle(fontSize: 11, color: Colors.grey),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -70,10 +74,13 @@ class ChatItem extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Expanded(
-                            child: Text(chatData['last_text'],
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(fontSize: 13))),
+                          child: Text(
+                            chatData['last_text'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(fontSize: 13),
+                          ),
+                        ),
                         if (isNotified)
                           Padding(
                             padding: const EdgeInsets.only(right: 5),
