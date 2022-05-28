@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../theme/colors.dart';
 
+import '../../theme/colors.dart';
 import '../../widgets/notify_box.dart';
 
 class ChatItem extends StatelessWidget {

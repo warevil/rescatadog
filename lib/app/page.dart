@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:pet_app/screens/chat.dart';
-// import 'package:pet_app/screens/home.dart';
+
+import '../chat/page.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
-import '../widgets/bottom_bar_item.dart';
-import '../chat/page.dart';
+import 'widgets/bottom_bar_item.dart';
 
 // import 'package:pet_app/widgets/bottombar_item.dart';
 
