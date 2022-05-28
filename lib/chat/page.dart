@@ -18,53 +18,58 @@ class _ChatPageState extends State<ChatPage> {
 
   getBody() {
     return SingleChildScrollView(
-      child: Column(children: [
-        getHeader(),
-        getChats(),
-      ]),
+      child: Column(
+        children: [
+          getHeader(),
+          getChats(),
+        ],
+      ),
     );
   }
 
   getHeader() {
     return Container(
-        padding: const EdgeInsets.fromLTRB(15, 60, 15, 5),
-        decoration: const BoxDecoration(),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: const Text(
-                        'Chats',
-                        style: TextStyle(
-                            fontSize: 28,
-                            color: Colors.black87,
-                            fontWeight: FontWeight.w600),
-                      )),
-                ),
-              ],
-            ),
-            const SizedBox(height: 15),
-            const CustomTextBox(
-              hint: 'Buscar',
-              prefix: Icon(Icons.search, color: Colors.grey),
-            ),
-          ],
-        ));
+      padding: const EdgeInsets.fromLTRB(15, 60, 15, 5),
+      decoration: const BoxDecoration(),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Container(
+                    alignment: Alignment.centerLeft,
+                    child: const Text(
+                      'Chats',
+                      style: TextStyle(
+                          fontSize: 28,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w600),
+                    )),
+              ),
+            ],
+          ),
+          const SizedBox(height: 15),
+          const CustomTextBox(
+            hint: 'Buscar',
+            prefix: Icon(Icons.search, color: Colors.grey),
+          ),
+        ],
+      ),
+    );
   }
 
   getChats() {
     return ListView(
-        padding: const EdgeInsets.all(10),
-        shrinkWrap: true,
-        children: List.generate(
-            chats.length,
-            (index) => ChatItem(
-                  chats[index],
-                  onTap: () {},
-                )));
+      padding: const EdgeInsets.all(10),
+      shrinkWrap: true,
+      children: List.generate(
+        chats.length,
+        (index) => ChatItem(
+          chats[index],
+          onTap: () {},
+        ),
+      ),
+    );
   }
 }

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class NotifyBox extends StatelessWidget {
-  const NotifyBox(
-      {Key? key,
-      required this.number,
-      this.boxSize = 30,
-      this.color = Colors.red})
-      : super(key: key);
+  const NotifyBox({
+    Key? key,
+    required this.number,
+    this.boxSize = 30,
+    this.color = Colors.red,
+  }) : super(key: key);
+
   final int number;
   final double boxSize;
   final Color color;
+
   @override
   Widget build(BuildContext context) {
     return Visibility(

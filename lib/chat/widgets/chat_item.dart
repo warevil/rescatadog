@@ -4,9 +4,14 @@ import '../../theme/colors.dart';
 import '../../widgets/notify_box.dart';
 
 class ChatItem extends StatelessWidget {
-  const ChatItem(this.chatData,
-      {Key? key, this.onTap, this.isNotified = true, this.profileSize = 50})
-      : super(key: key);
+  const ChatItem(
+    this.chatData, {
+    Key? key,
+    this.onTap,
+    this.isNotified = true,
+    this.profileSize = 50,
+  }) : super(key: key);
+
   final Map<String, dynamic> chatData;
   final bool isNotified;
   final GestureTapCallback? onTap;

@@ -114,21 +114,23 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
                 offset: const Offset(0, 1))
           ]),
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: List.generate(
-              barItems.length,
-              (index) => BottomBarItem(
-                    activeTab == index
-                        ? barItems[index]['active_icon']
-                        : barItems[index]['icon'],
-                    '',
-                    isActive: activeTab == index,
-                    activeColor: primary,
-                    onTap: () {
-                      onPageChanged(index);
-                    },
-                  ))),
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: List.generate(
+          barItems.length,
+          (index) => BottomBarItem(
+            activeTab == index
+                ? barItems[index]['active_icon']
+                : barItems[index]['icon'],
+            '',
+            isActive: activeTab == index,
+            activeColor: primary,
+            onTap: () {
+              onPageChanged(index);
+            },
+          ),
+        ),
+      ),
     );
   }
 }

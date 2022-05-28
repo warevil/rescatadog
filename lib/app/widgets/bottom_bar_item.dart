@@ -4,14 +4,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../theme/colors.dart';
 
 class BottomBarItem extends StatelessWidget {
-  const BottomBarItem(this.icon, this.title,
-      {Key? key,
-      this.onTap,
-      this.color = Colors.black,
-      this.activeColor = primary,
-      this.isActive = false,
-      this.isNotified = false})
-      : super(key: key);
+  const BottomBarItem(
+    this.icon,
+    this.title, {
+    Key? key,
+    this.onTap,
+    this.color = Colors.black,
+    this.activeColor = primary,
+    this.isActive = false,
+    this.isNotified = false,
+  }) : super(key: key);
+
   final String icon;
   final String title;
   final Color color;
@@ -26,25 +29,28 @@ class BottomBarItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        child: Stack(alignment: Alignment.center, children: <Widget>[
-          Container(
-            padding: const EdgeInsets.all(7),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: isActive ? primary.withOpacity(.1) : Colors.transparent,
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: isActive ? primary.withOpacity(.1) : Colors.transparent,
+              ),
+              child: SvgPicture.asset(
+                icon,
+                color: isActive ? activeColor : color,
+                width: 25,
+                height: 25,
+              ),
             ),
-            child: SvgPicture.asset(
-              icon,
-              color: isActive ? activeColor : color,
-              width: 25,
-              height: 25,
-            ),
-          ),
-          // Positioned(
-          //   bottom: -8,
-          //   child: Icon(Icons.arrow_drop_up, size: 20.0, color: isActive ? activeColor: Colors.transparent)
-          // ),
-        ]),
+            // Positioned(
+            //   bottom: -8,
+            //   child: Icon(Icons.arrow_drop_up, size: 20.0, color: isActive ? activeColor: Colors.transparent)
+            // ),
+          ],
+        ),
       ),
     );
   }
