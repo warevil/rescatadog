@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
 import '../widgets/bottom_bar_item.dart';
-import '../adoption/page.dart';
+import '../chat/page.dart';
 
 // import 'package:pet_app/widgets/bottombar_item.dart';
 
@@ -41,7 +41,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     {
       "icon": "icons/pet-border.svg",
       "active_icon": "icons/pet.svg",
-      "page": MyHomePage(title: "dsdds"),
+      "page": ChatPage(),
       "title": ""
     },
   ];
