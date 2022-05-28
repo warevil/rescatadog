@@ -7,7 +7,7 @@ class ChatItem extends StatelessWidget {
   const ChatItem(this.chatData,
       {Key? key, this.onTap, this.isNotified = true, this.profileSize = 50})
       : super(key: key);
-  final chatData;
+  final Map chatData;
   final bool isNotified;
   final GestureTapCallback? onTap;
   final double profileSize;
@@ -27,7 +27,7 @@ class ChatItem extends StatelessWidget {
               color: Colors.grey.withOpacity(0.1),
               spreadRadius: 1,
               blurRadius: 1,
-              offset: Offset(1, 1), // changes position of shadow
+              offset: const Offset(1, 1), // changes position of shadow
             ),
           ],
         ),
@@ -44,8 +44,7 @@ class ChatItem extends StatelessWidget {
                 // ),
                 const SizedBox(width: 10),
                 Expanded(
-                    child: Container(
-                        child: Column(
+                    child: Column(
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +53,7 @@ class ChatItem extends StatelessWidget {
                             child: Text(chatData['name'],
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700))),
                         const SizedBox(width: 5),
@@ -87,7 +86,7 @@ class ChatItem extends StatelessWidget {
                       ],
                     ),
                   ],
-                ))),
+                )),
               ],
             ),
           ],
