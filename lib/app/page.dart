@@ -5,8 +5,6 @@ import '../theme/colors.dart';
 import '../utils/constants.dart';
 import 'widgets/bottom_bar_item.dart';
 
-// import 'package:pet_app/widgets/bottombar_item.dart';
-
 class RootApp extends StatefulWidget {
   const RootApp({Key? key}) : super(key: key);
 
