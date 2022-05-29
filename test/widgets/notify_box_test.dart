@@ -10,7 +10,7 @@ void main() {
   testWidgets('MyWidget has a title and message', (tester) async {
     // Create the widget by telling the tester to build it.
 
-    await tester.pumpWidget(const MyWidget(number: testNumber, title: 'xd'));
+    await tester.pumpWidget(const MyWidget(number: testNumber));
 
     // Create the Finders.
     final titleFinder = find.text(testNumber.toString());
@@ -24,17 +24,14 @@ void main() {
 class MyWidget extends StatelessWidget {
   const MyWidget({
     super.key,
-    required this.title,
     required this.number,
   });
 
-  final String title;
   final int number;
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Flutter Demo',
       home: Scaffold(
         body: NotifyBox(number: testNumber),
       ),
