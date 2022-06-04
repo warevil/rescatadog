@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'widgets/perfil_item_about.dart';
 
-class Perfil extends StatelessWidget {
-  const Perfil({super.key});
+class Profile extends StatelessWidget {
+  const Profile({super.key});
 
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            leading: Icon(Icons.arrow_back), title: Text('PERFIL DE USUARIO')),
+            // leading: Icon(Icons.arrow_back),
+            title: Text('PERFIL DE USUARIO')),
         body: Column(
           children: [
             Container(
