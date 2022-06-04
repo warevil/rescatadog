@@ -18,7 +18,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   List barItems = [
     {
       'icon': IconsPath.petBorder,
-      'active_icon': 'assets/icons/pet.svg',
+      'active_icon': IconsPath.pet,
       'page': const Center(
         child: Text('Pet Page'),
       ),
@@ -33,8 +33,8 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'title': ' '
     },
     {
-      'icon': 'assets/icons/pet-border.svg',
-      'active_icon': 'assets/icons/pet.svg',
+      'icon': IconsPath.chatBorder,
+      'active_icon': IconsPath.chat,
       'page': const ChatPage(),
       'title': ' '
     },
