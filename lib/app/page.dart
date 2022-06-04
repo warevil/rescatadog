@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescatadog/home/page.dart';
 
 import '../chat/page.dart';
 import '../theme/colors.dart';
@@ -17,12 +18,17 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   int activeTab = 0;
   List barItems = [
     {
+      "icon": "assets/icons/home-border.svg",
+      "active_icon": "assets/icons/home.svg",
+      "page": HomePage(),
+      "title": ""
+    },
       'icon': IconsPath.petBorder,
       'active_icon': IconsPath.pet,
       'page': const Center(
         child: Text('Pet Page'),
       ),
-      'title': ' '
+      "title": ""
     },
     {
       'icon': 'assets/icons/setting-border.svg',
