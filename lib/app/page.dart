@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rescatadog/home/page.dart';
 
 import '../chat/page.dart';
 import '../theme/colors.dart';
@@ -19,7 +20,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'icon': 'assets/icons/pet-border.svg',
       'active_icon': 'assets/icons/pet.svg',
       'page': const Center(
-        child: Text('Pet Page'),
+        child: HomePage(),
       ),
       'title': ' '
     },
