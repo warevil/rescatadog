@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../chat/page.dart';
+import '../pet_create/page.dart';
 import '../pet_profile/page.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
@@ -19,15 +20,13 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     {
       'icon': 'icons/pet-border.svg',
       'active_icon': 'icons/pet.svg',
-      'page': PetProfile(),
+      'page': const PetProfile(),
       'title': ' '
     },
     {
       'icon': 'assets/icons/setting-border.svg',
       'active_icon': 'assets/icons/setting.svg',
-      'page': const Center(
-        child: Text('Setting Page'),
-      ),
+      'page': CreatePetApp(),
       'title': ' '
     },
     {
