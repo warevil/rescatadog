@@ -3,7 +3,8 @@ import 'package:rescatadog/home/page.dart';
 
 import '../chat/page.dart';
 import '../theme/colors.dart';
-import '../utils/constants.dart';
+import '../constants/animations.dart';
+import '../constants/icons.dart';
 import 'widgets/bottom_bar_item.dart';
 
 class RootApp extends StatefulWidget {
@@ -22,13 +23,10 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       "page": HomePage(),
       "title": ""
     },
-    {
-      "icon": "assets/icons/pet-border.svg",
-      "active_icon": "assets/icons/pet.svg",
-      "page": Container(
-        child: Center(
-          child: Text("Pet Page"),
-        ),
+      'icon': IconsPath.petBorder,
+      'active_icon': IconsPath.pet,
+      'page': const Center(
+        child: Text('Pet Page'),
       ),
       "title": ""
     },
@@ -41,8 +39,8 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'title': ' '
     },
     {
-      'icon': 'assets/icons/pet-border.svg',
-      'active_icon': 'assets/icons/pet.svg',
+      'icon': IconsPath.chatBorder,
+      'active_icon': IconsPath.chat,
       'page': const ChatPage(),
       'title': ' '
     },
@@ -50,7 +48,9 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
 //====== Animation=====
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: animatedBodyMs),
+    duration: const Duration(
+      milliseconds: AnimationsPath.animatedBodyMiliseconds,
+    ),
     vsync: this,
   );
 
