@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../db/data.dart';
 import './widgets/chat_item.dart';
 import '../../widgets/custom_text_box.dart';
+import 'constants.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class _ChatPageState extends State<ChatPage> {
                 child: Container(
                     alignment: Alignment.centerLeft,
                     child: const Text(
-                      'Chats',
+                      ChatWords.chats,
                       style: TextStyle(
                           fontSize: 28,
                           color: Colors.black87,
@@ -51,7 +52,7 @@ class _ChatPageState extends State<ChatPage> {
           ),
           const SizedBox(height: 15),
           const CustomTextBox(
-            hint: 'Buscar',
+            hint: ChatWords.search,
             prefix: Icon(Icons.search, color: Colors.grey),
           ),
         ],
