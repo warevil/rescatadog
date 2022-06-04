@@ -4,7 +4,8 @@ import '../chat/page.dart';
 import '../pet_create/page.dart';
 import '../pet_profile/page.dart';
 import '../theme/colors.dart';
-import '../utils/constants.dart';
+import '../constants/animations.dart';
+import '../constants/icons.dart';
 import 'widgets/bottom_bar_item.dart';
 
 class RootApp extends StatefulWidget {
@@ -18,7 +19,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   int activeTab = 0;
   List barItems = [
     {
-      'icon': 'icons/pet-border.svg',
+      'icon': IconsPath.petBorder,
       'active_icon': 'icons/pet.svg',
       'page': const PetProfile(),
       'title': ' '
@@ -30,8 +31,8 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'title': ' '
     },
     {
-      'icon': 'assets/icons/pet-border.svg',
-      'active_icon': 'assets/icons/pet.svg',
+      'icon': IconsPath.chatBorder,
+      'active_icon': IconsPath.chat,
       'page': const ChatPage(),
       'title': ' '
     },
@@ -39,7 +40,9 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
 //====== Animation=====
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: animatedBodyMs),
+    duration: const Duration(
+      milliseconds: AnimationsPath.animatedBodyMiliseconds,
+    ),
     vsync: this,
   );
 
