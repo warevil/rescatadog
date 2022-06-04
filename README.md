@@ -2,6 +2,10 @@
 
 Una aplicación al rescate de las mascotas.
 
-## Getting Started
+## Ejecutar la aplicación
 
-This project is a starting point for a Flutter application.
+`flutter run`
+
+## Testing
+
+`flutter test`
