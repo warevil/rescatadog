@@ -1,4 +1,4 @@
-name: res
+name: rescatadog
 description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -33,4 +33,4 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/bigotes.jpg
+    - assets/icons/

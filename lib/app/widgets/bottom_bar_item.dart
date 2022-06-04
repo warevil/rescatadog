@@ -45,10 +45,12 @@ class BottomBarItem extends StatelessWidget {
                 height: 25,
               ),
             ),
-            // Positioned(
-            //   bottom: -8,
-            //   child: Icon(Icons.arrow_drop_up, size: 20.0, color: isActive ? activeColor: Colors.transparent)
-            // ),
+            Positioned(
+              bottom: -8,
+              child: Icon(Icons.arrow_drop_up,
+                  size: 20.0,
+                  color: isActive ? activeColor : Colors.transparent),
+            ),
           ],
         ),
       ),

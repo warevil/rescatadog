@@ -23,16 +23,16 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'title': ' '
     },
     {
-      'icon': 'icons/setting-border.svg',
-      'active_icon': 'icons/setting.svg',
+      'icon': 'assets/icons/setting-border.svg',
+      'active_icon': 'assets/icons/setting.svg',
       'page': const Center(
         child: Text('Setting Page'),
       ),
       'title': ' '
     },
     {
-      'icon': 'icons/pet-border.svg',
-      'active_icon': 'icons/pet.svg',
+      'icon': 'assets/icons/pet-border.svg',
+      'active_icon': 'assets/icons/pet.svg',
       'page': const ChatPage(),
       'title': ' '
     },
