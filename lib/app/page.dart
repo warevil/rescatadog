@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rescatadog/login/widgets/login.dart';
 
 import '../chat/page.dart';
+import '../login/page.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
 import 'widgets/bottom_bar_item.dart';
@@ -35,6 +37,12 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'icon': 'assets/icons/pet-border.svg',
       'active_icon': 'assets/icons/pet.svg',
       'page': const ChatPage(),
+      'title': ' '
+    },
+    {
+      'icon': 'assets/icons/pet-border.svg',
+      'active_icon': 'assets/icons/pet.svg',
+      'page': Login(),
       'title': ' '
     },
   ];
