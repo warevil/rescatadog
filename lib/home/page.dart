@@ -19,25 +19,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: appBgColor,
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: appBarColor,
-              pinned: true,
-              snap: true,
-              floating: true,
-              title: getAppBar(),
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => buildBody(),
-                childCount: 1,
-              ),
-            )
-          ],
-        ));
+    return CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          backgroundColor: appBarColor,
+          pinned: true,
+          snap: true,
+          floating: true,
+          title: getAppBar(),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => buildBody(),
+            childCount: 1,
+          ),
+        )
+      ],
+    );
   }
 
   Widget getAppBar() {

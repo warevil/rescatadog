@@ -17,12 +17,20 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   int activeTab = 0;
   List barItems = [
     {
-      'icon': 'assets/icons/pet-border.svg',
-      'active_icon': 'assets/icons/pet.svg',
-      'page': const Center(
-        child: HomePage(),
+      "icon": "assets/icons/home-border.svg",
+      "active_icon": "assets/icons/home.svg",
+      "page": HomePage(),
+      "title": ""
+    },
+    {
+      "icon": "assets/icons/pet-border.svg",
+      "active_icon": "assets/icons/pet.svg",
+      "page": Container(
+        child: Center(
+          child: Text("Pet Page"),
+        ),
       ),
-      'title': ' '
+      "title": ""
     },
     {
       'icon': 'assets/icons/setting-border.svg',
