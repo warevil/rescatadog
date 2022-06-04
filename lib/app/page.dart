@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../chat/page.dart';
 import '../theme/colors.dart';
 import '../constants/animations.dart';
+import '../constants/icons.dart';
 import 'widgets/bottom_bar_item.dart';
 
 class RootApp extends StatefulWidget {
@@ -16,7 +17,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   int activeTab = 0;
   List barItems = [
     {
-      'icon': 'assets/icons/pet-border.svg',
+      'icon': IconsPath.petBorder,
       'active_icon': 'assets/icons/pet.svg',
       'page': const Center(
         child: Text('Pet Page'),
@@ -41,7 +42,9 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
 //====== Animation=====
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: Animations.animatedBodyMiliseconds),
+    duration: const Duration(
+      milliseconds: AnimationsPath.animatedBodyMiliseconds,
+    ),
     vsync: this,
   );
 
