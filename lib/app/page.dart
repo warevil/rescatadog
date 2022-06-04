@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../chat/page.dart';
 import '../theme/colors.dart';
-import '../utils/constants.dart';
+import '../constants/animations.dart';
 import 'widgets/bottom_bar_item.dart';
 
 class RootApp extends StatefulWidget {
@@ -41,7 +41,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
 //====== Animation=====
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: animatedBodyMs),
+    duration: const Duration(milliseconds: Animations.animatedBodyMiliseconds),
     vsync: this,
   );
 
