@@ -23,6 +23,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       "page": HomePage(),
       "title": ""
     },
+    {
       'icon': IconsPath.petBorder,
       'active_icon': IconsPath.pet,
       'page': const Center(
