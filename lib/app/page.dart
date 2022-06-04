@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:res/perfil/page.dart';
 
 import '../chat/page.dart';
+import '../perfil/page.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
 import 'widgets/bottom_bar_item.dart';
@@ -41,7 +41,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     {
       'icon': 'icons/home-border.svg',
       'active_icon': 'icons/home.svg',
-      'page': Perfil(),
+      'page': const Perfil(),
       'title': ' '
     },
   ];
