@@ -41,7 +41,7 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     {
       'icon': 'icons/home-border.svg',
       'active_icon': 'icons/home.svg',
-      'page': const Profile(),
+      'page': Profile(),
       'title': ' '
     },
   ];
