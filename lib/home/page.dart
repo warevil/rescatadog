@@ -1,8 +1,6 @@
-import 'dart:html';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:rescatadog/utils/data.dart';
+import 'package:rescatadog/db/dataHome.dart';
 
 import '../theme/colors.dart';
 import 'widgets/category_item.dart';
