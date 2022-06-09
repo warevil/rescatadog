@@ -66,8 +66,14 @@ class _LoginState extends State<MyHomeLoginApp> {
     return TextFormField(
       decoration: InputDecoration(labelText: "Ingresa tu correo"),
       validator: (value) {
-        if (!_isEmail(value.toString())) {
-          return 'Ingrese un correo válido';
+        if (value!.isEmpty) {
+          return 'Ingrese su correo';
+        } else {
+          if (!_isEmail(value.toString())) {
+            return 'Ingrese un correo válido';
+          } else {
+            return null;
+          }
         }
       },
     );
@@ -79,7 +85,7 @@ class _LoginState extends State<MyHomeLoginApp> {
       decoration: InputDecoration(labelText: "Ingresa tu contraseña"),
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Ingrese su contraseñe';
+          return 'Ingrese su contraseña';
         }
       },
     );
