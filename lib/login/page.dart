@@ -35,6 +35,15 @@ class _LoginState extends State<MyHomeLoginApp> {
 
   final _formkey = GlobalKey<FormState>();
 
+  // Inicialmente la contraseña no es visible
+  bool _obscureText = true;
+  // Cambia la visibilidad de la contraseña
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +57,24 @@ class _LoginState extends State<MyHomeLoginApp> {
                   Form(
                     key: _formkey,
                     child: Column(children: <Widget>[
-                      SizedBox(height: 40),
+                      SizedBox(height: 50),
                       emailText(),
                       passwordText(),
+                      new TextButton.icon(
+                        onPressed: _toggle,
+                        icon: Icon(
+                          _obscureText
+                              ? Icons.remove_red_eye
+                              : Icons.hide_source_outlined,
+                          size: 24.0,
+                        ),
+                        label: Text(_obscureText
+                            ? 'Mostrar contraseña'
+                            : 'Ocultar contraseña'),
+                      ),
                       Container(
                         margin: EdgeInsets.only(top: 25),
+                        width: 150,
                         child: loginButton(),
                       )
                     ]),
@@ -64,7 +86,11 @@ class _LoginState extends State<MyHomeLoginApp> {
 
   Widget emailText() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "Ingresa tu correo"),
+      decoration: InputDecoration(
+          labelText: "Ingresa tu correo",
+          icon: const Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: const Icon(Icons.email))),
       validator: (value) {
         if (value!.isEmpty) {
           return 'Ingrese su correo';
@@ -81,11 +107,21 @@ class _LoginState extends State<MyHomeLoginApp> {
 
   Widget passwordText() {
     return TextFormField(
-      obscureText: true,
-      decoration: InputDecoration(labelText: "Ingresa tu contraseña"),
+      obscureText: _obscureText,
+      decoration: InputDecoration(
+          labelText: "Ingresa tu contraseña",
+          icon: const Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: const Icon(Icons.lock))),
       validator: (value) {
         if (value!.isEmpty) {
           return 'Ingrese su contraseña';
+        } else {
+          if (value.length < 8) {
+            return 'La contraseña debe tener al menos 8 caracteres';
+          } else {
+            return null;
+          }
         }
       },
     );
