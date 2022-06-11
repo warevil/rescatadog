@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../chat/page.dart';
 import '../profile/page.dart';
+import '../searchDog/page.dart';
 import '../theme/colors.dart';
 import '../utils/constants.dart';
 import 'widgets/bottom_bar_item.dart';
@@ -41,7 +42,13 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
     {
       'icon': 'icons/home-border.svg',
       'active_icon': 'icons/home.svg',
-      'page': Profile(),
+      'page': const Profile(),
+      'title': ' '
+    },
+    {
+      'icon': 'icons/home-border.svg',
+      'active_icon': 'icons/home.svg',
+      'page': const SearchDog(),
       'title': ' '
     },
   ];
