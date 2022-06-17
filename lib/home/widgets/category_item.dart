@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rescatadog/theme/colors.dart';
+
+import '../../theme/colors.dart';
 
 class CategoryItem extends StatelessWidget {
   CategoryItem(

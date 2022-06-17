@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:rescatadog/db/dataHome.dart';
-import 'package:rescatadog/home/logic.dart';
-
+import 'logic.dart';
+import '../db/dataHome.dart';
 import '../theme/colors.dart';
 import 'widgets/category_item.dart';
 import 'widgets/notification_box.dart';
@@ -166,8 +165,8 @@ class _HomePageState extends State<HomePage> {
                   },
                   onFavoriteTap: () {
                     setState(() {
-                      filteredPets[index]["is_favorited"] =
-                          !filteredPets[index]["is_favorited"];
+                      filteredPets[index]["is_favorite"] =
+                          !filteredPets[index]["is_favorite"];
                     });
                   },
                 )));

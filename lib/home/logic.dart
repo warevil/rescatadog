@@ -1,6 +1,7 @@
-import 'package:rescatadog/db/dataHome.dart';
+import '../db/dataHome.dart';
 
 //Logic here
+
 class HomeLogic {
   var all;
   var filteredPets;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
-import 'package:rescatadog/home/widgets/favorite_box.dart';
-import 'package:rescatadog/theme/colors.dart';
+import 'favorite_box.dart';
+import '../../theme/colors.dart';
 
 import 'custom_image.dart';
 
