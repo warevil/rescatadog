@@ -61,36 +61,26 @@ class _LoginState extends State<MyHomeLoginApp> {
                       SizedBox(height: 50),
                       emailText(),
                       passwordText(),
-                      new TextButton.icon(
-                        onPressed: _toggle,
-                        icon: Icon(
-                          _obscureText
-                              ? Icons.remove_red_eye
-                              : Icons.hide_source_outlined,
-                          size: 24.0,
-                        ),
-                        label: Text(_obscureText
-                            ? 'Mostrar contraseña'
-                            : 'Ocultar contraseña'),
-                      ),
                       Container(
-                        margin: EdgeInsets.only(top: 10, bottom: 10),
-                        width: 150,
+                        margin: EdgeInsets.only(top: 25, bottom: 10),
+                        width: 200,
+                        height: 40,
                         child: loginButton(),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => RegisterApp()));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(200, 40),
-                            maximumSize: const Size(200, 40)),
-                        child: const Text(
-                          '¿No tienes cuenta? Regístrate',
-                          style: TextStyle(fontSize: 10.0),
+                      SizedBox(
+                        width: 200,
+                        height: 25,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => RegisterApp()));
+                          },
+                          child: const Text(
+                            '¿No tienes cuenta? Regístrate',
+                            style: TextStyle(fontSize: 10.0),
+                          ),
                         ),
                       )
                     ]),
@@ -103,7 +93,7 @@ class _LoginState extends State<MyHomeLoginApp> {
   Widget emailText() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Ingresa tu correo",
+          labelText: "Ingrese su correo",
           icon: const Padding(
               padding: const EdgeInsets.only(top: 15.0),
               child: const Icon(Icons.email))),
@@ -122,32 +112,46 @@ class _LoginState extends State<MyHomeLoginApp> {
   }
 
   Widget passwordText() {
-    return TextFormField(
-      obscureText: _obscureText,
-      decoration: InputDecoration(
-          labelText: "Ingresa tu contraseña",
-          icon: const Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: const Icon(Icons.lock))),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Ingrese su contraseña';
-        } else {
-          if (value.length < 8) {
-            return 'La contraseña debe tener al menos 8 caracteres';
-          } else {
-            return null;
-          }
-        }
-      },
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        new Flexible(
+            child: new TextFormField(
+          obscureText: _obscureText,
+          decoration: InputDecoration(
+              labelText: "Ingrese su contraseña",
+              icon: const Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: const Icon(Icons.lock))),
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Ingrese su contraseña';
+            } else {
+              if (value.length < 8) {
+                return 'La contraseña debe tener al menos 8 caracteres';
+              } else {
+                return null;
+              }
+            }
+          },
+        )),
+        SizedBox(width: 20.0),
+        new Flexible(
+            child: new TextButton.icon(
+          onPressed: _toggle,
+          icon: Icon(
+            _obscureText ? Icons.remove_red_eye : Icons.hide_source_outlined,
+            size: 18.0,
+          ),
+          label: Text(_obscureText ? 'Mostrar' : 'Ocultar'),
+        ))
+      ],
     );
   }
 
   Widget loginButton() {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
       primary: Colors.white,
-      minimumSize: const Size(200, 40),
-      maximumSize: const Size(200, 40),
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2.0)),
