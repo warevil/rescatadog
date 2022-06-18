@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../register/page.dart';
 
 void main() {
   runApp(LoginApp());
@@ -48,8 +49,8 @@ class _LoginState extends State<MyHomeLoginApp> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            margin: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 50),
-            padding: EdgeInsets.only(top: 50, left: 50, right: 50, bottom: 50),
+            margin: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
+            padding: EdgeInsets.only(top: 40, left: 50, right: 50, bottom: 40),
             child: Center(
               child: Column(
                 children: [
@@ -73,9 +74,24 @@ class _LoginState extends State<MyHomeLoginApp> {
                             : 'Ocultar contraseña'),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 25),
+                        margin: EdgeInsets.only(top: 10, bottom: 10),
                         width: 150,
                         child: loginButton(),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegisterApp()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: const Size(200, 40),
+                            maximumSize: const Size(200, 40)),
+                        child: const Text(
+                          '¿No tienes cuenta? Regístrate',
+                          style: TextStyle(fontSize: 10.0),
+                        ),
                       )
                     ]),
                   )
@@ -130,7 +146,8 @@ class _LoginState extends State<MyHomeLoginApp> {
   Widget loginButton() {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
       primary: Colors.white,
-      minimumSize: Size(88, 44),
+      minimumSize: const Size(200, 40),
+      maximumSize: const Size(200, 40),
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2.0)),
@@ -142,11 +159,14 @@ class _LoginState extends State<MyHomeLoginApp> {
       style: flatButtonStyle,
       onPressed: () {
         if (_formkey.currentState!.validate()) {
-          Scaffold.of(context)
-              .showSnackBar(SnackBar(content: Text('Accesando al Sistema')));
+          Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text('Accesando al Sistema'),
+              behavior: SnackBarBehavior.floating,
+              margin: EdgeInsets.only(bottom: 75.0)));
         }
       },
-      child: Text('Login'),
+      child: Text('Login',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
     );
   }
 }

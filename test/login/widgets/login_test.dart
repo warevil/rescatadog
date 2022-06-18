@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rescatadog/login/widgets/login.dart';
+import 'package:rescatadog/login/page.dart';
 import '../widgets/login_test.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class LoginApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: (AppBar(title: Text(titulo))),
-        body: Login(),
+        body: LoginApp(),
       ),
     );
   }
