@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:rescatadog/utils/data.dart';
-
+import 'logic.dart';
+import '../db/dataHome.dart';
 import '../theme/colors.dart';
 import 'widgets/category_item.dart';
 import 'widgets/notification_box.dart';
@@ -15,6 +15,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  HomeLogic logic = HomeLogic(pets);
+  late var filteredPets;
+  @override
+  void initState() {
+    super.initState();
+    filteredPets = logic.filteredPets;
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -123,6 +131,10 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   selectedCategory = index;
                 });
+                logic.filterByCategory(index);
+                setState(() {
+                  filteredPets = logic.filteredPets;
+                });
               },
             ));
     return SingleChildScrollView(
@@ -142,9 +154,9 @@ class _HomePageState extends State<HomePage> {
           viewportFraction: .8,
         ),
         items: List.generate(
-            pets.length,
+            filteredPets.length,
             (index) => PetItem(
-                  data: pets[index],
+                  data: filteredPets[index],
                   width: width,
                   onTap: () {
                     /*print("raa");
@@ -153,8 +165,8 @@ class _HomePageState extends State<HomePage> {
                   },
                   onFavoriteTap: () {
                     setState(() {
-                      pets[index]["is_favorited"] =
-                          !pets[index]["is_favorited"];
+                      filteredPets[index]["is_favorite"] =
+                          !filteredPets[index]["is_favorite"];
                     });
                   },
                 )));
