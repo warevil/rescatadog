@@ -34,6 +34,15 @@ class _RegisterState extends State<MyHomeRegisterApp> {
 
   final _formkey = GlobalKey<FormState>();
 
+  // Inicialmente la contraseña no es visible
+  bool _obscureText = true;
+  // Cambia la visibilidad de la contraseña
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   // Validar confirmación de contraseña
   final TextEditingController _pass = TextEditingController();
   final TextEditingController _confirmPass = TextEditingController();
@@ -148,25 +157,46 @@ class _RegisterState extends State<MyHomeRegisterApp> {
   }
 
   Widget passwordText() {
-    return TextFormField(
-      controller: _pass,
-      obscureText: true,
-      decoration: InputDecoration(
-          labelText: "Ingrese su contraseña",
-          icon: const Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: const Icon(Icons.lock))),
-      validator: (value) {
-        if (value!.isEmpty) {
-          return 'Ingrese su contraseña';
-        } else {
-          if (value.length < 8) {
-            return 'La contraseña debe tener al menos 8 caracteres';
-          } else {
-            return null;
-          }
-        }
-      },
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        new Expanded(
+          flex: 9,
+          child: new TextFormField(
+            controller: _pass,
+            obscureText: _obscureText,
+            decoration: InputDecoration(
+                labelText: "Ingrese su contraseña",
+                icon: const Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: const Icon(Icons.lock))),
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Ingrese su contraseña';
+              } else {
+                if (value.length < 8) {
+                  return 'La contraseña debe tener al menos 8 caracteres';
+                } else {
+                  return null;
+                }
+              }
+            },
+          ),
+        ),
+        SizedBox(width: 20.0),
+        new Expanded(
+            flex: 1,
+            child: new TextButton.icon(
+              onPressed: _toggle,
+              icon: Icon(
+                _obscureText
+                    ? Icons.remove_red_eye
+                    : Icons.hide_source_outlined,
+                size: 18.0,
+              ),
+              label: Text(_obscureText ? 'Mostrar' : 'Ocultar'),
+            )),
+      ],
     );
   }
 

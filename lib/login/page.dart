@@ -115,36 +115,40 @@ class _LoginState extends State<MyHomeLoginApp> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        new Flexible(
+        new Expanded(
+            flex: 9,
             child: new TextFormField(
-          obscureText: _obscureText,
-          decoration: InputDecoration(
-              labelText: "Ingrese su contraseña",
-              icon: const Padding(
-                  padding: const EdgeInsets.only(top: 15.0),
-                  child: const Icon(Icons.lock))),
-          validator: (value) {
-            if (value!.isEmpty) {
-              return 'Ingrese su contraseña';
-            } else {
-              if (value.length < 8) {
-                return 'La contraseña debe tener al menos 8 caracteres';
-              } else {
-                return null;
-              }
-            }
-          },
-        )),
+              obscureText: _obscureText,
+              decoration: InputDecoration(
+                  labelText: "Ingrese su contraseña",
+                  icon: const Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: const Icon(Icons.lock))),
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Ingrese su contraseña';
+                } else {
+                  if (value.length < 8) {
+                    return 'La contraseña debe tener al menos 8 caracteres';
+                  } else {
+                    return null;
+                  }
+                }
+              },
+            )),
         SizedBox(width: 20.0),
-        new Flexible(
+        new Expanded(
+            flex: 1,
             child: new TextButton.icon(
-          onPressed: _toggle,
-          icon: Icon(
-            _obscureText ? Icons.remove_red_eye : Icons.hide_source_outlined,
-            size: 18.0,
-          ),
-          label: Text(_obscureText ? 'Mostrar' : 'Ocultar'),
-        ))
+              onPressed: _toggle,
+              icon: Icon(
+                _obscureText
+                    ? Icons.remove_red_eye
+                    : Icons.hide_source_outlined,
+                size: 18.0,
+              ),
+              label: Text(_obscureText ? 'Mostrar' : 'Ocultar'),
+            ))
       ],
     );
   }
