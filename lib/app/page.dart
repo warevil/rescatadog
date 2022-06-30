@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rescatadog/home/page.dart';
 
 import '../chat/page.dart';
+import '../profile/page.dart';
+import '../searchDog/page.dart';
 import '../theme/colors.dart';
 import '../constants/animations.dart';
 import '../constants/icons.dart';
@@ -43,6 +45,18 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'icon': IconsPath.chatBorder,
       'active_icon': IconsPath.chat,
       'page': const ChatPage(),
+      'title': ' '
+    },
+    {
+      'icon': 'icons/home-border.svg',
+      'active_icon': 'icons/home.svg',
+      'page': const Profile(),
+      'title': ' '
+    },
+    {
+      'icon': 'icons/home-border.svg',
+      'active_icon': 'icons/home.svg',
+      'page': const SearchDog(),
       'title': ' '
     },
   ];
