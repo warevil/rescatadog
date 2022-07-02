@@ -9,14 +9,14 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+class ProfileUser extends StatefulWidget {
+  const ProfileUser({Key? key}) : super(key: key);
 
   @override
   _ProfileState createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<ProfileUser> {
   // Map<String, dynamic> datas = {
   //   'image': 'https://i.postimg.cc/1XbYvZ2p/woman.jpg',
   //   'name': 'Mari Doe',
