@@ -9,6 +9,8 @@ import '../constants/animations.dart';
 import '../constants/icons.dart';
 import 'widgets/bottom_bar_item.dart';
 
+import '../profile/page.dart';
+
 class RootApp extends StatefulWidget {
   const RootApp({Key? key}) : super(key: key);
 
@@ -41,6 +43,12 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
       'icon': IconsPath.chatBorder,
       'active_icon': IconsPath.chat,
       'page': const ChatPage(),
+      'title': ' '
+    },
+    {
+      'icon': 'icons/user.svg',
+      'active_icon': 'icons/user.svg',
+      'page': const ProfileUser(),
       'title': ' '
     },
   ];
