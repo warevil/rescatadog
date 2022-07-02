@@ -69,7 +69,7 @@ class Pet {
 
 Future<Pet> fetchPet() async {
   final response = await http
-      .get(Uri.parse('https://rescatadog.herokuapp.com/api/pets/2'), headers: {
+      .get(Uri.parse('https://rescatadog.herokuapp.com/api/pets/0'), headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoZXJiZXJ0LmFyc2lsdmFAZ21haWwuY29tIiwiZXhwIjoxNjU2ODM3NTE5fQ.9foAm18rt60jVKBsBfNRVbdkGir1QbNMa8WTKPcqfnQ',
