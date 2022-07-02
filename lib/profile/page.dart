@@ -29,10 +29,10 @@ class _ProfileState extends State<ProfileUser> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-              onPressed: null,
-            ),
+            // leading: IconButton(
+            //   icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+            //   onPressed: (){},
+            // ),
             title: Text('PERFIL DE USUARIO')),
         // body: ProfileItem(data));
         body: FutureBuilder<DataProfile?>(
