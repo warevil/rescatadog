@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:rescatadog/home/page.dart';
 
 import '../chat/page.dart';
+import '../pet_create/page.dart';
+import '../pet_profile/page.dart';
 import '../theme/colors.dart';
-import '../utils/constants.dart';
+import '../constants/animations.dart';
+import '../constants/icons.dart';
 import 'widgets/bottom_bar_item.dart';
 
 class RootApp extends StatefulWidget {
@@ -16,24 +20,26 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
   int activeTab = 0;
   List barItems = [
     {
-      'icon': 'assets/icons/pet-border.svg',
-      'active_icon': 'assets/icons/pet.svg',
-      'page': const Center(
-        child: Text('Pet Page'),
-      ),
-      'title': ' '
+      "icon": "assets/icons/home-border.svg",
+      "active_icon": "assets/icons/home.svg",
+      "page": HomePage(),
+      "title": ""
+    },
+    {
+      'icon': IconsPath.petBorder,
+      'active_icon': IconsPath.pet,
+      'page': const PetProfile(),
+      "title": ""
     },
     {
       'icon': 'assets/icons/setting-border.svg',
       'active_icon': 'assets/icons/setting.svg',
-      'page': const Center(
-        child: Text('Setting Page'),
-      ),
+      'page': CreatePetApp(),
       'title': ' '
     },
     {
-      'icon': 'assets/icons/pet-border.svg',
-      'active_icon': 'assets/icons/pet.svg',
+      'icon': IconsPath.chatBorder,
+      'active_icon': IconsPath.chat,
       'page': const ChatPage(),
       'title': ' '
     },
@@ -41,7 +47,9 @@ class _RootAppState extends State<RootApp> with TickerProviderStateMixin {
 
 //====== Animation=====
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: animatedBodyMs),
+    duration: const Duration(
+      milliseconds: AnimationsPath.animatedBodyMiliseconds,
+    ),
     vsync: this,
   );
 
