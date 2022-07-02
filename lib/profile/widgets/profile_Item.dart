@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem(this.userData, {Key? key}) : super(key: key);
-  final Map<String, dynamic> userData;
+  // final Map<String, dynamic> userData;
+  final userData;
 
   Widget build(BuildContext context) {
     return Column(
       children: [
-        getProfileImage(userData['image']),
+        getProfileImage(userData.image),
         Container(
             width: 350,
             child: Column(
               children: [
-                getName(userData['name']),
-                getEmail(userData['email']),
-                getPhone(userData['phone']),
-                getBased(userData['address']),
+                getName(userData.firstname, userData.lastname),
+                getEmail(userData.email),
+                getPhone(userData.phone),
+                getBased(userData.address),
                 Container(
                   padding: EdgeInsets.only(top: 8),
                   width: 350,
@@ -25,7 +26,8 @@ class ProfileItem extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 16)),
                 ),
-                getAbout(userData['aboutme'])
+                getAbout(userData.about)
+                // getAbout(userData['aboutme'])
               ],
             )),
       ],
@@ -45,7 +47,7 @@ class ProfileItem extends StatelessWidget {
     );
   }
 
-  getName(String name) {
+  getName(String name, String last) {
     return Container(
       padding: EdgeInsets.only(bottom: 8),
       child: Row(children: [
@@ -53,7 +55,7 @@ class ProfileItem extends StatelessWidget {
         Container(
           child: Container(
             padding: EdgeInsets.only(left: 8),
-            child: Text('${name}',
+            child: Text('${name} ${last}',
                 style: TextStyle(fontFamily: 'OpenSans', fontSize: 16)),
           ),
         ),
@@ -61,7 +63,7 @@ class ProfileItem extends StatelessWidget {
     );
   }
 
-  getPhone(String phone) {
+  getPhone(int phone) {
     return Container(
       padding: EdgeInsets.only(bottom: 8),
       child: Row(children: [
