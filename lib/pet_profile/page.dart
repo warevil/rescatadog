@@ -69,7 +69,7 @@ class Pet {
 
 Future<Pet> fetchPet() async {
   final response = await http
-      .get(Uri.parse('https://rescatadog.herokuapp.com/api/pets/1'), headers: {
+      .get(Uri.parse('https://rescatadog.herokuapp.com/api/pets/2'), headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoZXJiZXJ0LmFyc2lsdmFAZ21haWwuY29tIiwiZXhwIjoxNjU2ODM3NTE5fQ.9foAm18rt60jVKBsBfNRVbdkGir1QbNMa8WTKPcqfnQ',
@@ -225,7 +225,7 @@ class _MyPetProfileState extends State<PetProfilePage> {
                                 Container(
                                   child: Container(
                                     padding: EdgeInsets.only(left: 8),
-                                    child: Text('Andrea Rescatista',
+                                    child: Text('Miriam Cardenas',
                                         style: TextStyle(
                                             fontFamily: 'OpenSans', fontSize: 16)),
                                   ),
