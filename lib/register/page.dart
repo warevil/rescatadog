@@ -51,29 +51,30 @@ class _RegisterState extends State<MyHomeRegisterApp> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            margin: EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
-            padding: EdgeInsets.only(top: 10, left: 50, right: 50, bottom: 10),
+            margin: EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 5),
+            padding: EdgeInsets.only(top: 5, left: 50, right: 50, bottom: 5),
             child: Center(
               child: Column(
                 children: [
-                  Image.asset('assets/img/signup.png', height: 110),
+                  Image.asset('assets/img/signup.png', height: 80),
                   Form(
                     key: _formkey,
                     child: Column(children: <Widget>[
                       namesText(),
                       emailText(),
+                      usernameText(),
                       passwordText(),
                       confirmPasswordText(),
                       phoneNumberText(),
                       Container(
                         margin: EdgeInsets.only(top: 10, bottom: 10),
                         width: 200,
-                        height: 40,
+                        height: 25,
                         child: loginButton(),
                       ),
                       SizedBox(
                         width: 200,
-                        height: 25,
+                        height: 20,
                         child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -156,6 +157,23 @@ class _RegisterState extends State<MyHomeRegisterApp> {
     );
   }
 
+  Widget usernameText() {
+    return TextFormField(
+      decoration: InputDecoration(
+          labelText: "Ingrese su nombre de usuario",
+          icon: const Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: const Icon(Icons.person))),
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Ingrese su nombre de usuario!!';
+        } else {
+          return null;
+        }
+      },
+    );
+  }
+
   Widget passwordText() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -194,7 +212,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
                     : Icons.hide_source_outlined,
                 size: 18.0,
               ),
-              label: Text(_obscureText ? 'Mostrar' : 'Ocultar'),
+              label: Text(''),
             )),
       ],
     );
