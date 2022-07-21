@@ -1,13 +1,9 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:rescatadog/profile/class/api_profile.dart';
 import 'package:rescatadog/profile/class/pedido.dart';
 import 'widgets/profile_Item.dart';
 
 import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
 
 class ProfileUser extends StatefulWidget {
   const ProfileUser({Key? key}) : super(key: key);

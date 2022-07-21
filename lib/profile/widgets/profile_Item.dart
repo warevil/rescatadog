@@ -13,8 +13,8 @@ class ProfileItem extends StatelessWidget {
             width: 350,
             child: Column(
               children: [
-                getName(userData.firstname, userData.lastname),
-                getEmail(userData.email),
+                getName(userData.user.first_name, userData.user.last_name),
+                getEmail(userData.user.email),
                 getPhone(userData.phone),
                 getBased(userData.address),
                 Container(
