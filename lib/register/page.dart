@@ -1,6 +1,39 @@
 import 'package:flutter/material.dart';
 import '../login/page.dart';
 
+import 'package:http/http.dart' as http;
+import 'dart:developer';
+import 'dart:convert';
+
+Future<NewUser> registerUser(String firstname, String lastname, String username,
+    String email, String password) async {
+  final response = await http.post(
+      Uri.parse('http://localhost:8000/api/auth/register'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      body: jsonEncode(<String, String>{
+        'username': username,
+        'password': password,
+        'email': email,
+        'first_name': firstname,
+        'last_name': lastname,
+      }));
+  log(response.body);
+  return NewUser.fromJson(jsonDecode(response.body));
+}
+
+class NewUser {
+  final String message;
+  final String detail;
+
+  const NewUser({required this.message, required this.detail});
+
+  factory NewUser.fromJson(Map<String, dynamic> json) {
+    return NewUser(message: json['message'], detail: json['detail']);
+  }
+}
+
 class RegisterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -43,9 +76,15 @@ class _RegisterState extends State<MyHomeRegisterApp> {
     });
   }
 
+  Future<NewUser>? _futureNewUser;
+
   // Validar confirmación de contraseña
-  final TextEditingController _pass = TextEditingController();
-  final TextEditingController _confirmPass = TextEditingController();
+  final TextEditingController _firstname = TextEditingController();
+  final TextEditingController _lastname = TextEditingController();
+  final TextEditingController _username = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _confirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,16 +100,15 @@ class _RegisterState extends State<MyHomeRegisterApp> {
                     key: _formkey,
                     child: Column(children: <Widget>[
                       namesText(),
-                      emailText(),
                       usernameText(),
+                      emailText(),
                       passwordText(),
                       confirmPasswordText(),
-                      phoneNumberText(),
                       Container(
                         margin: EdgeInsets.only(top: 10, bottom: 10),
                         width: 200,
                         height: 25,
-                        child: loginButton(),
+                        child: registerButton(),
                       ),
                       SizedBox(
                         width: 200,
@@ -101,6 +139,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
         children: <Widget>[
           new Flexible(
             child: new TextFormField(
+              controller: _firstname,
               decoration: InputDecoration(
                   labelText: "Nombres",
                   icon: const Padding(
@@ -118,6 +157,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
           ),
           new Flexible(
             child: new TextFormField(
+              controller: _lastname,
               decoration: InputDecoration(
                   labelText: "Apellidos",
                   icon: const Padding(
@@ -138,6 +178,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
 
   Widget emailText() {
     return TextFormField(
+      controller: _email,
       decoration: InputDecoration(
           labelText: "Ingrese su correo",
           icon: const Padding(
@@ -159,6 +200,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
 
   Widget usernameText() {
     return TextFormField(
+      controller: _username,
       decoration: InputDecoration(
           labelText: "Ingrese su nombre de usuario",
           icon: const Padding(
@@ -181,7 +223,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
         new Expanded(
           flex: 9,
           child: new TextFormField(
-            controller: _pass,
+            controller: _password,
             obscureText: _obscureText,
             decoration: InputDecoration(
                 labelText: "Ingrese su contraseña",
@@ -220,7 +262,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
 
   Widget confirmPasswordText() {
     return TextFormField(
-      controller: _confirmPass,
+      controller: _confirmPassword,
       obscureText: true,
       decoration: InputDecoration(
           labelText: "Confirme su contraseña",
@@ -229,10 +271,10 @@ class _RegisterState extends State<MyHomeRegisterApp> {
               child: const Icon(Icons.lock))),
       validator: (value) {
         if (value!.isEmpty) {
-          return 'Confirme su contraseña';
+          return 'Confirme su contraseña!!';
         } else {
-          if (value != _pass.text) {
-            return 'Las contraseñas no coinciden';
+          if (value != _password.text) {
+            return 'Las contraseñas no coinciden!!';
           } else {
             return null;
           }
@@ -253,7 +295,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
           return 'Ingrese su teléfono';
         } else {
           if (!_isPhoneNumber(value)) {
-            return 'Ingrese un número de teléfono válido';
+            return 'Ingrese un número de teléfono válido!!';
           } else {
             return null;
           }
@@ -262,7 +304,7 @@ class _RegisterState extends State<MyHomeRegisterApp> {
     );
   }
 
-  Widget loginButton() {
+  Widget registerButton() {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
       primary: Colors.white,
       padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -280,6 +322,10 @@ class _RegisterState extends State<MyHomeRegisterApp> {
               content: Text('Registrando en el Sistema'),
               behavior: SnackBarBehavior.floating,
               margin: EdgeInsets.only(bottom: 75.0)));
+          setState(() {
+            _futureNewUser = registerUser(_firstname.text, _lastname.text,
+                _username.text, _email.text, _password.text);
+          });
         }
       },
       child: Text('Registrar',

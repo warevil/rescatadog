@@ -134,7 +134,6 @@ class _LoginState extends State<MyHomeLoginApp> {
                                 ),
                               ),
                             ),
-                            Text("Token: ${token}")
                           ]),
                         )
                       ],
